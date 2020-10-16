@@ -1,0 +1,9 @@
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\bin\Debug\netcoreapp3.1\DemoEntity.deps.json
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\bin\Debug\netcoreapp3.1\DemoEntity.dll
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.csprojAssemblyReference.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.AssemblyInfoInputs.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.AssemblyInfo.cs
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.csproj.CoreCompileInputs.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\bin\Debug\netcoreapp3.1\DemoEntity.pdb
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.dll
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoEntity\obj\Debug\netcoreapp3.1\DemoEntity.pdb

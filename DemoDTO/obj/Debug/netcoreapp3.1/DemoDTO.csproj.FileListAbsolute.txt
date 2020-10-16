@@ -1,0 +1,12 @@
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\bin\Debug\netcoreapp3.1\DemoDTO.deps.json
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\bin\Debug\netcoreapp3.1\DemoDTO.dll
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\bin\Debug\netcoreapp3.1\DemoDTO.pdb
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.csprojAssemblyReference.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.AssemblyInfoInputs.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.AssemblyInfo.cs
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.csproj.CoreCompileInputs.cache
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.dll
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.pdb
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\bin\Debug\netcoreapp3.1\DemoEntity.dll
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\bin\Debug\netcoreapp3.1\DemoEntity.pdb
+C:\Users\khyati dixit\source\repos\IdentityContextDemo\DemoDTO\obj\Debug\netcoreapp3.1\DemoDTO.csproj.CopyComplete
