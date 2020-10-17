@@ -4,6 +4,7 @@ using DemoEntity.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace DemoEntity.Implementation
         {
             _context = context;
         }
-
+        //LIST
         public async Task<List<UserDetails>> GetUserDetails()
         {
             try
@@ -29,49 +30,46 @@ namespace DemoEntity.Implementation
                 throw new Exception(ex.Message.ToString());
             }
         }
-        public async Task GetInsertDetails(UserDetails insert)
+        //INSERT
+        public async Task<bool> GetInsertDetails(UserDetails insert)
         {
-            try
-            {
-                 await _context.UserDetails.ToListAsync();
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
+            await _context.UserDetails.AddAsync(insert);
+            await _context.SaveChangesAsync();
+            return true;
         }
-        public async Task<List<UserDetails>> GetEditDetails(int id)
+        //GET-EDIT
+        public async Task<UserDetails> GetEditDetails(int? id)
         {
-            try
+            var viewModel =  _context.UserDetails.Where(x => x.UserId == id).FirstOrDefault();
+            var userDetails = new UserDetails
             {
-                return await _context.UserDetails.ToListAsync(); 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
+                UserId = viewModel.UserId,
+
+                FullName = viewModel.FullName,
+                UserEmail = viewModel.UserEmail
+
+            };
+            return userDetails;
         }
-        public async Task GetEditDetails(UserDetails insert)
+        //POST-EDIT
+        public async Task<bool> GetEditDetail1(UserDetails u)
         {
-            try
-            {
-                await _context.UserDetails.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
+            var viewModel =  _context.UserDetails.Where(x => x.UserId == u.UserId).FirstOrDefault();
+            viewModel.UserId = u.UserId;
+            viewModel.FullName = u.FullName;
+            viewModel.UserEmail = u.UserEmail;
+            _context.Entry(viewModel).State = EntityState.Modified;
+            _context.SaveChanges();
+            return true;
         }
-        public async Task DeleteUser(int? id)
+
+        //POST-DELETE
+        public async Task<bool> DeleteUser(int? id)
         {
-            try
-            {
-                await _context.UserDetails.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
+            var deleteUser = _context.UserDetails.Where(x => x.UserId == id).SingleOrDefault();
+             _context.UserDetails.Remove(deleteUser);
+             _context.SaveChanges();
+            return true;
         }
     }
 }

@@ -85,14 +85,12 @@ C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\D
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\Debug\netcoreapp3.1\IdentityContextDemo.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\Debug\netcoreapp3.1\IdentityContextDemo.pdb
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\Debug\netcoreapp3.1\IdentityContextDemo.genruntimeconfig.cache
-C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\Debug\netcoreapp3.1\Razor\Views\Book\AddNewBook.cshtml.g.cs
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoDTO.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoEntity.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoRepository.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoRepository.pdb
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoDTO.pdb
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\DemoEntity.pdb
-C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\obj\Debug\netcoreapp3.1\Razor\Views\Book\GetAllBooks.cshtml.g.cs
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
 C:\Users\khyati dixit\source\repos\IdentityContextDemo\IdentityContextDemo\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll

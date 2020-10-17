@@ -45,6 +45,12 @@ namespace DemoDTO.Models
         //public string ActivatedBy { get; set; }
         //public DateTime? VerifiedDate { get; set; }
         //public DateTime? ActivatedDate { get; set; }
+        public class Add
+        {
+            
+            public string FullName { get; set; }
+            public string UserEmail { get; set; }
+        }
 
         public virtual ICollection<CarDetails> CarDetails { get; set; }
     }

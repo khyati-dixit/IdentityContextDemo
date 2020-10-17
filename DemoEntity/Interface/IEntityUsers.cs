@@ -9,9 +9,9 @@ namespace DemoEntity.Interface
     public interface IEntityUsers
     {
         Task<List<UserDetails>> GetUserDetails();
-        Task GetInsertDetails(UserDetails insert);
-        Task DeleteUser(int? id);
-        Task GetEditDetails(UserDetails insert);
-        Task<List<UserDetails>> GetEditDetails(int id);
+        Task<bool> GetInsertDetails(UserDetails insert);
+        Task<bool> DeleteUser(int? id);
+        Task<bool> GetEditDetail1(UserDetails u);
+        Task<UserDetails> GetEditDetails(int? id);
     }
 }

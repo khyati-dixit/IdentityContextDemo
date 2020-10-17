@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using DemoRepository.Implementation;
 using DemoEntity.Model;
 using DemoEntity.Interface;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using static DemoDTO.Models.UserDetail;
 
 namespace DemoRepository.Interface
 {
@@ -39,82 +41,47 @@ namespace DemoRepository.Interface
             return userListDTO;
 
         }
+        public async Task<bool> Delete(int id)
+        {
+           await _entityUsers.DeleteUser(id);
+            return true;
+        }
+        public async Task<UserDetail> GetEditDetail1(int? id)
+        {
+            var viewModel = await _entityUsers.GetEditDetails(id);
 
-        //public BookRepository(traffictraineesContext context)
-        //{
-        //    _context = context;
-        //}
+            var user = new UserDetail
+            {
+                UserId = viewModel.UserId,
+                UserEmail = viewModel.UserEmail,
+                FullName = viewModel.FullName,
 
-        //public int AddNewBook(UserDetail model)
-        //{
-        //    var newBook = new UserDetails()
-        //    {
-        //        FullName = model.FullName,
-        //        UserEmail = model.UserEmail,
-        //        CivilIdNumber = model.CivilIdNumber,
-        //        //CarDetails = model.CarLicense
-        //    };
-        //    var car = new CarDetail()
-        //    {
-        //        CarLicense = insert.CarLicense,
-        //        UserId = insert.UserId
-        //    };
-        //    _context.UserDetails.AddAsync(newBook);
-        //    _context.SaveChangesAsync();
-        //    return newBook.UserId;
-        //}
+            };
+            return user;
+        }
+        public async Task<bool> GetEditDetail(UserDetail userDetail)
+        {
+            var user = new UserDetails()
+            {
+                UserId = userDetail.UserId,
+                FullName = userDetail.FullName,
+                UserEmail = userDetail.UserEmail
+            };
+            await _entityUsers.GetEditDetail1(user);
+            return true;
+        }
+        public async Task<bool> InsertDetails(Add insert)
+        {
+            var user = new UserDetails()
+            {
+                UserEmail = insert.UserEmail,
+                FullName = insert.FullName,
+            };
+            var res = await _entityUsers.GetInsertDetails(user);
+            return res;
+        }
 
-        //public List<UserDetail> GetAllBooks()
-        //{
-        //    return DataSource();
-        //}
-        //public UserDetail GetBookById(int id)
-        //{
-        //    return DataSource().Where(x => x.UserId == id).FirstOrDefault();
-        //}
-        //public List<UserDetail> SearchBook(string title, string authorName)
-        //{
-        //    return null;//DataSource().Where(x => x.BookName.Contains(title) || x.AuthorName.Contains(authorName)).ToList();
-        //}
 
-        //int IBookRepository.AddNewBook(UserDetail model)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private List<UserDetail> DataSource()
-        //{
-        //    return new List<UserDetail>()
-        //        {
-
-        //            //new UserDetail(){ Id= 1,BookName="mVC",AuthorName="Neha Sharma"},
-        //            //new UserDetail(){ Id= 2,BookName="mVC",AuthorName="Neha Sharma"},
-        //            //new UserDetail(){ Id= 3,BookName="mVC",AuthorName="Neha Sharma"},
-
-        //        };
-        //}
-
-        //Task<int> IBookRepository.AddNewBook(UserDetail insert)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public async Task<List<BookModel>> GetAllBooks()
-        //{
-        //    var books = new List<BookModel>();
-        //    var allbooks = await _context.Books.ToArrayAsync();
-        //    foreach (var book in allbooks)
-        //    {
-        //        books.Add(new BookModel()
-        //        {
-        //            Id = book.Id,
-        //            AuthorName = book.AuthorName,
-        //            BookName = book.BookName
-        //        });
-
-        //    }
-        //    return books;
-        //}
 
     }
 
