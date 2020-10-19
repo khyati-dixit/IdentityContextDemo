@@ -59,9 +59,10 @@ namespace IdentityContextDemo
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Book}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+                //Route(
+                //    name: "default",
+                //    pattern: "{controller=Book}/{action=Index}/{id?}");
             });
         }
     }

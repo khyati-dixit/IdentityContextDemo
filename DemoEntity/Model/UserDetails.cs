@@ -9,7 +9,7 @@ namespace DemoEntity.Model
         {
             CarDetails = new HashSet<CarDetails>();
         }
-
+      
         public int UserId { get; set; }
         public string FullName { get; set; }
         public string UserEmail { get; set; }

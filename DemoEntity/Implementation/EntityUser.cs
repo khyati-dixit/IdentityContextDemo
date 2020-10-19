@@ -23,6 +23,9 @@ namespace DemoEntity.Implementation
         {
             try
             {
+               // var carDetails = new List<CarDetails>();
+                //var cardetails = string.Join(",", carDetails.Where(x => x.UserId == x.UserId).Select(y => y.CarLicense).ToList());
+                //_context.Add(carDetails);
                 return await _context.UserDetails.ToListAsync();
             }
             catch (Exception ex)
@@ -38,9 +41,9 @@ namespace DemoEntity.Implementation
             return true;
         }
         //GET-EDIT
-        public async Task<UserDetails> GetEditDetails(int? id)
+        public async Task<UserDetails> GetEditDetails(int id)
         {
-            var viewModel =  _context.UserDetails.Where(x => x.UserId == id).FirstOrDefault();
+            var viewModel =  await _context.UserDetails.Where(x => x.UserId == id).FirstOrDefaultAsync();
             var userDetails = new UserDetails
             {
                 UserId = viewModel.UserId,
@@ -54,7 +57,7 @@ namespace DemoEntity.Implementation
         //POST-EDIT
         public async Task<bool> GetEditDetail1(UserDetails u)
         {
-            var viewModel =  _context.UserDetails.Where(x => x.UserId == u.UserId).FirstOrDefault();
+            var viewModel = await _context.UserDetails.Where(x => x.UserId == u.UserId).FirstOrDefaultAsync();
             viewModel.UserId = u.UserId;
             viewModel.FullName = u.FullName;
             viewModel.UserEmail = u.UserEmail;
@@ -64,10 +67,12 @@ namespace DemoEntity.Implementation
         }
 
         //POST-DELETE
-        public async Task<bool> DeleteUser(int? id)
+        public async Task<bool> DeleteUser(int id)
         {
-            var deleteUser = _context.UserDetails.Where(x => x.UserId == id).SingleOrDefault();
-             _context.UserDetails.Remove(deleteUser);
+            var deleteUser = await _context.UserDetails.Where(x => x.UserId == id).SingleOrDefaultAsync();
+            deleteUser.IsActive = false;
+            _context.Entry(deleteUser).State = EntityState.Modified;
+             //_context.UserDetails.Remove(deleteUser);
              _context.SaveChanges();
             return true;
         }

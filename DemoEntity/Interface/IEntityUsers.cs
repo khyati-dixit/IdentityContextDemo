@@ -10,8 +10,8 @@ namespace DemoEntity.Interface
     {
         Task<List<UserDetails>> GetUserDetails();
         Task<bool> GetInsertDetails(UserDetails insert);
-        Task<bool> DeleteUser(int? id);
+        Task<bool> DeleteUser(int id);
         Task<bool> GetEditDetail1(UserDetails u);
-        Task<UserDetails> GetEditDetails(int? id);
+        Task<UserDetails> GetEditDetails(int id);
     }
 }

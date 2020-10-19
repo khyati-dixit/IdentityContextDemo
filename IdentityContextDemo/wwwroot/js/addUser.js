@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $("#btnAdd").click(function () {
         $.ajax({
-            url: '/Book/Insert',
+            url: '/Home/Insert',
             type: 'POST',
             data: {
                 FullName: $("#AName").val(),

@@ -8,23 +8,63 @@
 <head>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
-   
+    <link href="~/lib/bootstrap/dist/css/bootstrap-draky.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Book" asp-action="Index">List</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
     <div class="container py-4">
         <br />
-        <h3 class="text-center text-uppercase">Users</h3><br />
+        <div class="jumbotron">
+            <h2 class="text-left text-uppercase">Users</h2>
+        </div><br />
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addUser">
             Add User
         </button>
         <hr />
         <div id="dataTable_wrapper"></div>
-        <table id="dataTable1" class="table table-bordered table-striped">
+        <table id="dataTable1" class="table table-bordered table-striped" style="background-color:darkslategray;">
             <thead>
-                <tr>
+                <tr class="table-primary">
                     <th>UserId</th>
                     <th>FullName</th>
                     <th>UserEmail</th>
+                    <th>CarLicense</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -34,7 +74,7 @@
 
     </div>
 
-  
+
     <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -44,7 +84,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-
+                            
                             <div class="form-group">
 
                                 <label>Full Name</label>
@@ -58,26 +98,26 @@
                                 <span id="latval" class="field-validation-error"></span>
                             </div>
 
-                            
+
                             @*<div class="form-group">
-                                    <label>Civil Id Number</label>
-                                    <input class="form-control" id="AID" name="AID" type="text" />
-                                    <span id="IDval" class="field-validation-error"></span>
-                                </div>*@
+            <label>Civil Id Number</label>
+            <input class="form-control" id="AID" name="AID" type="text" />
+            <span id="IDval" class="field-validation-error"></span>
+        </div>*@
                             <input type="hidden" id="action" name="action" />
 
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" id="btnAdd">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" id="btnAdd">Submit</button>
                 </div>
             </div>
         </div>
     </div>
 
- <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -116,13 +156,20 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Close</button>
-                    <button type="submit" class="btn btn-primary" id="btnEdit">Submit</button>
+                    <button type="button" class="btn btn-outline-warning" data-dismiss="modal" onclick="">Close</button>
+                    <button type="submit" class="btn btn-outline-success" id="btnEdit">Submit</button>
 
                 </div>
             </div>
         </div>
     </div>
+    <div class="py-4">
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - IdentityContextDemo - <h5 text-muted>@DateTime.Now</h5>
+        </div>
+    </footer>
+        </div>
 </body>
 </html>
 
@@ -138,7 +185,7 @@
         debugger;
         $('#dataTable1').DataTable({
             "ajax": {
-                "url": '/Book/GetUserList',
+                "url": '/Home/GetUserList',
                 "type": "GET",
                 "datatype": "json",
             },
@@ -147,8 +194,9 @@
                 { "data": "userId" },
                 { "data": "fullName" },
                 { "data": "userEmail" },
-                { "data": null, title: 'Action', wrap: true, "render": function (data) { return '<div class="btn-group"> <button type="button" onclick="EditUserDetails(' + data.userId + ')" class="btn btn-info" data-toggle="modal" data-target="#editUser">Edit</button></div>' } },
-                { "data": null, title: 'Action', wrap: true, "render": function (data) { return '<div class="btn-group"> <button type="button" onclick="DeleteUser(' + data.userId + ')" class="btn btn-danger">Delete</button></div>' } },
+                { "data": "carLicense" },
+                { "data": null, title: 'Action', wrap: true, "render": function (data) { return '<div class="btn-group"> <button type="button" onclick="EditUserDetails(' + data.userId + ')" class="btn btn-outline-info" data-toggle="modal" data-target="#editUser">Edit</button></div>' } },
+                { "data": null, title: 'Action', wrap: true, "render": function (data) { return '<div class="btn-group"> <button type="button" onclick="DeleteUser(' + data.userId + ')" class="btn btn-outline-danger">Delete</button></div>' } },
 
 
             ]

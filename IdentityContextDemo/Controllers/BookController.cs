@@ -11,6 +11,7 @@ using static DemoDTO.Models.UserDetail;
 
 namespace IdentityContextDemo.Controllers
 {
+    
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
@@ -18,30 +19,52 @@ namespace IdentityContextDemo.Controllers
         {
             _bookRepository = bookRepository;
         }
-        public ActionResult Index()
+
+        //GET 
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
+        [Route("Home/Index")]
+        public IActionResult Index()
         {
 
             return View();
         }
-        [HttpGet]
-        public async Task<IActionResult> GetUserList()
+
+
+        [HttpGet]//LIST 
+        [Route("Home/GetUserList")]
+        [Route("Home/GetUserList/{id?}")]
+         public async Task<IActionResult> GetUserList()
         {
             var data_ = await _bookRepository.GetUserDetails();
             return Json(new { data = data_ });
         }
-        [HttpPost]
+
+
+        [HttpPost]//DELETE 
+        [Route("Home/Delete")]
+        [Route("Home/Delete/{id?}")]
         public async Task<ActionResult> Delete(int id)
         {
             await _bookRepository.Delete(id);
             return Json(new { data = true });
         }
-        [HttpGet]
-        public async Task<ActionResult> Edit(int? id)
+
+
+        [HttpGet]//EDIT 
+        [Route("Home/Edit")]
+        [Route("Home/Edit/{id?}")]
+        public async Task<ActionResult> Edit(int id)
         {
             var data_ = await _bookRepository.GetEditDetail1(id);
             return Json(new { data = data_ });
         }
-        [HttpPost]
+
+
+        [HttpPost]//EDIT
+        [Route("Home/Edit")]
+        [Route("Home/Edit/{id?}")]
         public async Task<ActionResult> Edit(UserDetail userDetail)
         {
             if (ModelState.IsValid)
@@ -50,8 +73,12 @@ namespace IdentityContextDemo.Controllers
             }
             return Json(new { data = true });
         }
-        [HttpPost]
-        public async Task<IActionResult> Insert(Add insert)
+
+
+        [HttpPost]//INSERT
+        [Route("Home/Insert")]
+        [Route("Home/Insert/{id?}")]
+         public async Task<IActionResult> Insert(Add insert)
         {
             var result = await _bookRepository.InsertDetails(insert);
             return Json(result);

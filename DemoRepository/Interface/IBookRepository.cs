@@ -10,7 +10,7 @@ namespace DemoRepository.Implementation
     {
         Task<List<UserDetail>> GetUserDetails();
         Task<bool> Delete(int id);
-        Task<UserDetail> GetEditDetail1(int? id);
+        Task<UserDetail> GetEditDetail1(int id);
         Task<bool> InsertDetails(Add insert);
         Task<bool> GetEditDetail(UserDetail userDetail);
         //int AddNewBook(UserDetail model);

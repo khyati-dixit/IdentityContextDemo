@@ -1,7 +1,7 @@
 ﻿function EditUserDetails(id) {
     debugger;
     $.ajax({
-        url: '/Book/Edit?Id=' + id,
+        url: '/Home/Edit?Id=' + id,
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
@@ -11,7 +11,7 @@
             console.log(data);
             $("#AId0").val(data.data.userId);
             $("#AName0").val(data.data.fullName);
-            $("#ALat0").val(data.userEmail);
+            $("#ALat0").val(data.data.userEmail);
            
             }
     });
@@ -22,7 +22,7 @@ $(document).ready(function () {
     debugger;
     $("#btnEdit").click(function () {
         $.ajax({
-            url: '/Book/Edit',
+            url: '/Home/Edit',
             type: 'POST',
             data: {
                 UserId: $("#AId0").val(),
